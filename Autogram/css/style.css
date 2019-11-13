@@ -1,0 +1,261 @@
+/* Basic*/
+@font-face {
+    font-family: 'Montserrat ExtraLight';
+
+}
+
+.navbar {
+    height: 60px;
+}
+.navbar-brand{
+    font-family: "Lemon Tuesday";
+    font-size: 37px;
+    margin-left: 20px;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+
+a, .page-link {
+    color: #FF6A2A;
+}
+
+a:hover, .page-link:hover {
+    color: #83888E;
+}
+
+
+#sticky-footer {
+     margin-top: 100px;
+ }
+#sticky-footer1 {
+    margin-top: 100%;
+}
+
+.btn {
+    color: white;
+    background-color: #696969;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #D8BFD8;
+}
+
+
+
+h5, h3, h6 {
+    color: #808080;
+}
+
+/*Index*/
+body {
+    background-color: white;
+    font-family: 'Montserrat ExtraLight';
+}
+
+.carousel-item {
+    height: 95vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+/*Index2*/
+.tr {
+    background-color: rgba(33, 37, 41, 0.3) !important;
+}
+
+.list-group-item {
+    display: flex;
+    border-radius: 5px;
+}
+
+#profile-img {
+    display: block;
+    margin: auto;
+}
+
+/*Index3*/
+.input-group-prepend span {
+    width: 50px;
+    background-color: #D8BFD8;
+    color: white;
+    border: 0 !important;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.form-card {
+    height: 420px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(33, 37, 41, 0.3) !important;
+}
+.card-body{
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    background-color: rgba(33, 37, 41, 0.3) !important;
+}
+
+.log-in-card {
+    height: 300px;
+}
+
+.formula-card {
+    height: 480px;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.container.type1 {
+    margin-top: 50px;
+    height: 100%;
+    align-content: center;
+}
+
+.body-with-img {
+    font-family: 'Montserrat ExtraLight', sans-serif;
+    background-image:url("https://preview.redd.it/ryrcbi4cx4az.png?width=960&crop=smart&auto=webp&s=b3868fc13d6d35f5aa9ede93105ed63929239df8");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.body-with-img1 {
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.body-with-img1 image {
+
+    position	: relative;
+
+}
+
+h2 {
+    font-family: "Lemon Tuesday";
+    color: grey;
+    position	: center;
+    top		: 200px;
+
+    width		: 100%;
+}
+.container.type3 h1{
+    font-family: "Lemon Tuesday";
+    height: 100%;
+    align-content: center;
+}
+
+/*Index6*/
+.container.type2 {
+    height: 100%;
+    align-content: center;
+}
+
+#filebutton {
+    color: white;
+}
+
+.panel-heading {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+}
+
+.media-body {
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: rgba(66, 74, 82, 0.4) !important;
+}
+
+.media-body .panel-heading {
+    padding: 20px;
+}
+
+.media-body .author {
+    display: block;
+    color: black;
+    font-weight: 700;
+}
+
+.media-body .metadata {
+    display: block;
+    color: black;
+    font-size: .75rem;
+}
+
+.title-comments {
+    color: black;
+    margin-top: 200px;
+}
+
+.media-left img {
+    width: 70px;
+}
+
+.media {
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.media-text {
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.form-group.panel-body {
+    margin-top: 30px;
+    margin-left: 120px;
+    padding: 20px;
+    background-color: rgba(33, 37, 41, 0.3) !important;
+}
+
+.form-group.alt {
+    margin-top: 30px;
+    margin-left: 120px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.input-tr, .input-tr:hover, .input-tr:focus {
+    background-color: rgba(33, 37, 41, 0.3) !important;
+    border: none !important;
+    outline: none !important;
+    color: white;
+    font-size: large;
+}
+
+.hidden {
+    font-size: 0;
+}
