@@ -1,0 +1,79 @@
+.dialog {
+	border: 1px solid #f5f5f5;
+	margin: 20px auto 0px;
+	padding: 10px;
+}
+
+.interlocutor {
+	text-align: center;
+	border-bottom: 1px solid #f5f5f5;
+}
+
+.messages {
+	height: 600px;
+	overflow-y: scroll;
+	padding-right: 17px;
+	padding-bottom: 5px;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 25px;
+	object-fit: cover;
+}
+
+.interlocutor-name {
+	font-weight: 600;
+	font-size: 16px;
+	margin-left: 10px;
+	height: 50px;
+	vertical-align: top;
+	line-height: 50px;
+	display: inline-block;
+}
+
+.message {
+	padding: 8px 20px;
+	width: 50%;
+	color: #000;
+	border: 1px solid #ccc;
+	margin-top: 10px;
+	border-radius: 15px;
+}
+
+.rigth-message {
+	margin-right: 0px;
+    margin-left: auto;
+	display: block;
+	background: #f5f5f5;
+}
+
+.new-message {
+	resize: none;
+    border: none;
+	overflow: visible;
+    outline: none;
+	min-height: 100px;
+	padding: 10px 10px 5px 10px;
+    display: block;
+}
+
+.send-button {
+	background: #fff;
+	outline: none;
+	border: none;
+	background: #fff;
+	text-align: right;
+    outline: none;
+    margin: 10px 0px auto 0px;
+    border: none;
+}
+
+.message-form {
+	border-top: 1px solid #f5f5f5;
+}
+
+.dialog {
+	background: #fff;
+}
