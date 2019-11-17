@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +25,8 @@ public class UserRepository implements IRepository<User> {
 
     @Override
     public User create(User user) {
-        String sqlQuery = "INSERT INTO user(name, first_name, last_name, email, password_hash, avatar) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlQuery = "INSERT INTO user(name, first_name, last_name, email, password_hash, avatar, token) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sqlQuery)) {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getFirstName());
@@ -33,6 +34,8 @@ public class UserRepository implements IRepository<User> {
             stmt.setString(4, user.getEmail());
             stmt.setString(5, PasswordEncrypt.generateHash(user.getPassword()));
             stmt.setString(6, user.getAvatar());
+            stmt.setString(7, PasswordEncrypt.generateHash(user.getPassword() +
+                    user.getName() + new Date().toString()));
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e);

@@ -11,6 +11,7 @@ public class UserRowMapper implements IRowMapper<User> {
         User user = new User();
         user.setId(row.getInt("id"));
         user.setName(row.getString("name"));
+        user.setToken(row.getString("token"));
         user.setEmail(row.getString("email"));
         user.setStatus(row.getString("status"));
         user.setAvatar(row.getString("avatar"));

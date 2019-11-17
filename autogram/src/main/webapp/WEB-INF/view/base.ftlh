@@ -19,7 +19,7 @@
         <div class="col-3 menu-item right-border">Лента</div>
         <div class="col-3 menu-item right-border">Профиль</div>
         <div class="col-3 menu-item right-border">О сайте</div>
-        <div class="col-3 menu-item">Выйти</div>
+        <div class="col-3"><a href="http://localhost:8080/logout" class="menu-item">Выйти</a></div>
     </div>
 </div>
 <div class="container content">
