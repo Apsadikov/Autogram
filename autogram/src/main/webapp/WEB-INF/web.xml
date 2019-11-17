@@ -5,15 +5,46 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>com.autogram.servlet.Test</servlet-class>
-        <multipart-config>
-        </multipart-config>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.autogram.controller.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>com.autogram.controller.SignupServlet</servlet-class>
+        <multipart-config></multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/sign-up</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>freemarker</servlet-name>
+        <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+
+        <init-param>
+            <param-name>TemplatePath</param-name>
+            <param-value>/WEB-INF/view</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>default_encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>freemarker</servlet-name>
+        <url-pattern>*.ftl</url-pattern>
+        <url-pattern>*.ftlh</url-pattern>
+        <url-pattern>*.ftlx</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -25,4 +56,5 @@
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
 </web-app>

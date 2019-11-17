@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -17,9 +18,10 @@ public class DBConnection {
     public static Connection getInstance() {
         if (instance == null) {
             try {
-                InputStream file = new FileInputStream("");
+                InputStream file = new FileInputStream(System.getProperty("user.dir") + "/config/db.properties");
                 Properties properties = new Properties();
                 properties.load(file);
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 instance = DriverManager.getConnection("jdbc:mysql://" +
                         properties.getProperty("ip") + ":" + Integer.parseInt(properties.getProperty("port")) + "/" +
                         properties.getProperty("db_name") + "?" +

@@ -1,12 +1,11 @@
 package com.autogram.util;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Part;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Properties;
 import java.util.Random;
 
 public class FileUploader {
@@ -18,12 +17,19 @@ public class FileUploader {
     private String[] extensionWhiteList;
     private int maxFileSize;
 
-    public FileUploader(String destinationPath, String targetExtension,
-                        String[] extensionWhiteList, int maxFileSize) {
-        this.destinationPath = destinationPath;
-        this.targetExtension = targetExtension;
-        this.extensionWhiteList = extensionWhiteList;
-        this.maxFileSize = maxFileSize;
+    public FileUploader(ServletContext servletContext, File propertiesFile) {
+        InputStream is = null;
+        try {
+            is = new FileInputStream(propertiesFile);
+            Properties properties = new Properties();
+            properties.load(is);
+            this.destinationPath = servletContext.getRealPath(properties.getProperty("destinationPath"));
+            this.targetExtension = properties.getProperty("targetExtension");
+            this.extensionWhiteList = properties.getProperty("extensionWhiteList").split(",");
+            this.maxFileSize = Integer.valueOf(properties.getProperty("maxFileSize"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void upload(Collection<Part> parts, FilesUploadCallback filesUploadCallback, String fileKey) {
@@ -67,7 +73,7 @@ public class FileUploader {
     private boolean upload(Part part, UploadCallback uploadCallback) {
         try {
             if (!checkFileExtension(part.getSubmittedFileName())) {
-                uploadCallback.onError(new FileError("Invalid file extension"));
+                uploadCallback.onError(new FileError("Недопустимый формат файла"));
                 return false;
             }
             File file = new File(getUniqueFileName(targetExtension));
@@ -86,7 +92,7 @@ public class FileUploader {
             inputStream.close();
             if (imageSize >= maxFileSize) {
                 file.delete();
-                uploadCallback.onError(new FileError("Max image size is: " +
+                uploadCallback.onError(new FileError("Максимальный размер файла: " +
                         String.valueOf(maxFileSize / 1024 / 8) + "KB"));
                 return false;
             }

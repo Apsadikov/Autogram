@@ -22,6 +22,10 @@ public class Validator {
         return new Specification(key, value);
     }
 
+    public void addError(String key, String msg) {
+        errorList.put(key, msg);
+    }
+
     public class Specification {
         private String value;
         private String key;
@@ -36,7 +40,7 @@ public class Validator {
         }
 
         public Specification isRequired() {
-            predicateList.add(s -> (s != null));
+            predicateList.add(s -> (s != null && s.length() > 1));
             return this;
         }
 

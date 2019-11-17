@@ -1,0 +1,53 @@
+.menu {
+	margin: auto;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.menu-item {
+	text-align: center;
+	font-family: sans-serif;
+	color: #888;
+}
+
+.left-border {
+	border-left: 1px solid #ccc;
+}
+
+.right-border {
+	border-right: 1px solid #ccc;
+}
+
+.login-form {
+	padding: 20px;
+	margin: 100px auto 0px;
+	display: block;
+}
+
+.text {
+	font-weight: 600;
+	text-align: center;
+}
+
+.avatar {
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin: 20px auto;
+	border-radius: 75px;
+	object-fit: cover;
+}
+
+.label {
+	margin: auto;
+	display: block;
+}
+
+.error {
+	color: red;
+	font-weight: 600;
+	font-size: 14px;
+	margin-left: 10px;
+	margin-top: 5px;
+	display: none;
+}
