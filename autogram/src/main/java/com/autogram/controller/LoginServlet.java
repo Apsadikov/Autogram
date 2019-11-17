@@ -65,8 +65,8 @@ public class LoginServlet extends HttpServlet {
                         cookieId.setMaxAge(2592000);
                         resp.addCookie(cookieId);
                         resp.addCookie(cookieToken);
-                        resp.sendRedirect("/profile");
                     }
+                    resp.sendRedirect("/profile");
                 } else {
                     validator.addError("password", "Неверный пароль");
                     req.setAttribute("email", email);
