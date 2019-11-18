@@ -22,6 +22,10 @@ public class User {
 
     private String token;
 
+    private int subscription;
+
+    private int subscriber;
+
     public int getId() {
         return id;
     }
@@ -100,5 +104,21 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public int getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(int subscription) {
+        this.subscription = subscription;
+    }
+
+    public int getSubscriber() {
+        return subscriber;
+    }
+
+    public void setSubscriber(int subsriber) {
+        this.subscriber = subsriber;
     }
 }

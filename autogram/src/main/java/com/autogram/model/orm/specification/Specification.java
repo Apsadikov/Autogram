@@ -4,5 +4,5 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public interface Specification {
-    PreparedStatement generateSql(String partOfQuery, Connection connection);
+    PreparedStatement generateSql(Connection connection);
 }

@@ -5,6 +5,26 @@
          version="4.0">
 
     <servlet>
+        <servlet-name>Subscriber</servlet-name>
+        <servlet-class>com.autogram.controller.SubscriberController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Subscriber</servlet-name>
+        <url-pattern>/subscriber</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Subscription</servlet-name>
+        <servlet-class>com.autogram.controller.SubscriptionController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Subscription</servlet-name>
+        <url-pattern>/subscription</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>com.autogram.controller.LogoutServlet</servlet-class>
     </servlet>

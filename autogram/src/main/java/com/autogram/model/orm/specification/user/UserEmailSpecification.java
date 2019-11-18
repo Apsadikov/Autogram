@@ -14,9 +14,9 @@ public class UserEmailSpecification implements Specification {
     }
 
     @Override
-    public PreparedStatement generateSql(String partOfQuery, Connection connection) {
+    public PreparedStatement generateSql(Connection connection) {
         try {
-            String sql = partOfQuery + " WHERE email = ?";
+            String sql = "SELECT * FROM user WHERE email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
             return preparedStatement;

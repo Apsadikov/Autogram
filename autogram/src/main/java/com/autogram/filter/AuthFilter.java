@@ -50,6 +50,15 @@ public class AuthFilter implements Filter {
                     Optional<List<User>> user = new UserRepository(DBConnection.getInstance())
                             .query(new UserIdSpecification(Integer.valueOf(id), token));
                     if (user.isPresent() && user.get().size() != 0) {
+                        req.getSession().setMaxInactiveInterval(-1);
+                        req.getSession().setAttribute("id", user.get().get(0).getId());
+                        req.getSession().setAttribute("token", user.get().get(0).getToken());
+                        Cookie cookieToken = new Cookie("token", user.get().get(0).getToken());
+                        Cookie cookieId = new Cookie("id", String.valueOf(user.get().get(0).getId()));
+                        cookieToken.setMaxAge(2592000);
+                        cookieId.setMaxAge(2592000);
+                        resp.addCookie(cookieId);
+                        resp.addCookie(cookieToken);
                         filterChain.doFilter(req, resp);
                         return;
                     }

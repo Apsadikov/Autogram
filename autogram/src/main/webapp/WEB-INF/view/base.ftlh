@@ -1,4 +1,4 @@
-<#macro extends title style js>
+<#macro extends title style js="">
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -16,10 +16,16 @@
 <body>
 <div class="container no-gutters menu">
     <div class="row no-gutters">
-        <div class="col-3 menu-item right-border">Лента</div>
-        <div class="col-3 menu-item right-border">Профиль</div>
-        <div class="col-3 menu-item right-border">О сайте</div>
-        <div class="col-3"><a href="http://localhost:8080/logout" class="menu-item">Выйти</a></div>
+        <#if Session["token"]??>
+            <div class="col-2 menu-item right-border">Лента</div>
+            <div class="col-2 menu-item right-border">Сообщения</div>
+            <div class="col-4 menu-item right-border">Профиль</div>
+            <div class="col-2 menu-item right-border">О сайте</div>
+            <div class="col-2"><a href="http://localhost:8080/logout" class="menu-item">Выйти</a></div>
+        <#else>
+            <div class="col-6 menu-item right-border">О сайте</div>
+            <div class="col-6"><a href="http://localhost:8080/login" class="menu-item">Вход</a></div>
+        </#if>
     </div>
 </div>
 <div class="container content">
@@ -32,7 +38,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
+<#if js != "">
 <script src="/static/js/${js}.js"></script>
+</#if>
 </body>
 </html>
 </#macro>

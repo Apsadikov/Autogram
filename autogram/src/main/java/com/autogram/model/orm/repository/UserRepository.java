@@ -56,7 +56,7 @@ public class UserRepository implements IRepository<User> {
     @Override
     public Optional<List<User>> query(Specification specification) {
         try {
-            ResultSet rs = specification.generateSql("SELECT * FROM user", connection).executeQuery();
+            ResultSet rs = specification.generateSql(connection).executeQuery();
             List<User> userList = new ArrayList<>();
             while (rs.next()) {
                 userList.add(userRowMapper.mapRow(rs));
