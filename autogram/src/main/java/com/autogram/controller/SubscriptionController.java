@@ -42,11 +42,13 @@ public class SubscriptionController extends HttpServlet {
                 req.setAttribute("style", "subscription");
                 req.setAttribute("owner", req.getParameter("id"));
             } else {
-                //TODO redirect
+                resp.sendRedirect("http://localhost:8080/profile");
+                return;
             }
             req.getRequestDispatcher("/subscription.ftlh").forward(req, resp);
         } else {
-            //TODO redirect
+            resp.sendRedirect("http://localhost:8080/profile");
+            return;
         }
     }
 }

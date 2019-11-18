@@ -44,7 +44,27 @@ public class UserRepository implements IRepository<User> {
     }
 
     @Override
-    public User update(User model) {
+    public User update(User user) {
+        if (user.getStatus() != null && user.getAvatar() == null) {
+            String sqlQuery = "UPDATE user SET status = ? WHERE user.id = ?";
+            try (PreparedStatement stmt = connection.prepareStatement(sqlQuery)) {
+                stmt.setString(1, user.getStatus());
+                stmt.setInt(2, user.getId());
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                throw new IllegalStateException(e);
+            }
+        } else if (user.getStatus() != null && user.getAvatar() != null) {
+            String sqlQuery = "UPDATE user SET status = ?, avatar = ? WHERE user.id = ?";
+            try (PreparedStatement stmt = connection.prepareStatement(sqlQuery)) {
+                stmt.setString(1, user.getStatus());
+                stmt.setString(2, user.getAvatar());
+                stmt.setInt(3, user.getId());
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                throw new IllegalStateException(e);
+            }
+        }
         return null;
     }
 

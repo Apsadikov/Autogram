@@ -23,6 +23,10 @@ public class AuthFilter implements Filter {
         Pattern patternLogin = Pattern.compile("^/login*$");
         Pattern patternSignup = Pattern.compile("^/sign-up*$");
         Pattern patternProfile = Pattern.compile("^/profile*$");
+        Pattern patternSubscriber = Pattern.compile("^/subscriber*$");
+        Pattern profileSubscription = Pattern.compile("^/subscriprion*$");
+        Pattern profileEdit = Pattern.compile("^/edit*$");
+        Pattern newPostEdit = Pattern.compile("^/new-post*$");
         String uri = req.getRequestURI();
         if (patternLogin.matcher(uri).matches() || patternSignup.matcher(uri).matches()) {
             if (req.getSession().getAttribute("id") != null
@@ -30,7 +34,9 @@ public class AuthFilter implements Filter {
                 resp.sendRedirect("http://localhost:8080/profile");
                 return;
             }
-        } else if (patternProfile.matcher(uri).matches()) {
+        } else if (patternProfile.matcher(uri).matches() || patternSubscriber.matcher(uri).matches()
+                || profileSubscription.matcher(uri).matches() || newPostEdit.matcher(uri).matches()
+                || newPostEdit.matcher(uri).matches()) {
             if (req.getSession().getAttribute("id") == null
                     && req.getSession().getAttribute("token") == null) {
                 String id = null;

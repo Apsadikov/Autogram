@@ -17,10 +17,10 @@
 <div class="container no-gutters menu">
     <div class="row no-gutters">
         <#if Session["token"]??>
-            <div class="col-2 menu-item right-border">Лента</div>
-            <div class="col-2 menu-item right-border">Сообщения</div>
-            <div class="col-4 menu-item right-border">Профиль</div>
-            <div class="col-2 menu-item right-border">О сайте</div>
+            <div class="col-2"><a href="http://localhost:8080/feed" class="menu-item right-border">Лента</a></div>
+            <div class="col-2"><a href="http://localhost:8080/message" class="menu-item right-border">Сообщения</a></div>
+            <div class="col-4"><a href="http://localhost:8080/profile" class="menu-item right-border">Профиль</a></div>
+            <div class="col-2"><a href="http://localhost:8080/about" class="menu-item right-border">О сайте</a></div>
             <div class="col-2"><a href="http://localhost:8080/logout" class="menu-item">Выйти</a></div>
         <#else>
             <div class="col-6 menu-item right-border">О сайте</div>

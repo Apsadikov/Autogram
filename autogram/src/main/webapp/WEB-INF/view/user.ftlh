@@ -15,6 +15,8 @@
                 <div class="subscribe">Подписаться</div>
                 <div class="message">Сообщение</div>
             </div>
+            <#else>
+                <a href="/edit" class="edit">Редактировать</a>
             </#if>
         </div>
         <div class="row no-gutters subscriber-info">
