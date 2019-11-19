@@ -20,23 +20,34 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        Pattern patternLogin = Pattern.compile("^/login*$");
-        Pattern patternSignup = Pattern.compile("^/sign-up*$");
-        Pattern patternProfile = Pattern.compile("^/profile*$");
+        Pattern login = Pattern.compile("^/login*$");
+        Pattern signup = Pattern.compile("^/sign-up*$");
+        Pattern profile = Pattern.compile("^/profile*$");
         Pattern patternSubscriber = Pattern.compile("^/subscriber*$");
         Pattern profileSubscription = Pattern.compile("^/subscriprion*$");
-        Pattern profileEdit = Pattern.compile("^/edit*$");
         Pattern newPostEdit = Pattern.compile("^/new-post*$");
+        Pattern profileEdit = Pattern.compile("^/edit*$");
+        Pattern tag = Pattern.compile("^/tag*$");
+        Pattern post = Pattern.compile("^/post*$");
+        Pattern like = Pattern.compile("^/like*$");
+        Pattern feed = Pattern.compile("^/feed*$");
+        Pattern userFinder = Pattern.compile("^/user*$");
         String uri = req.getRequestURI();
-        if (patternLogin.matcher(uri).matches() || patternSignup.matcher(uri).matches()) {
+        if (login.matcher(uri).matches() || signup.matcher(uri).matches()) {
             if (req.getSession().getAttribute("id") != null
                     && req.getSession().getAttribute("token") != null) {
                 resp.sendRedirect("http://localhost:8080/profile");
                 return;
             }
-        } else if (patternProfile.matcher(uri).matches() || patternSubscriber.matcher(uri).matches()
+        } else if (profile.matcher(uri).matches() || patternSubscriber.matcher(uri).matches()
                 || profileSubscription.matcher(uri).matches() || newPostEdit.matcher(uri).matches()
-                || newPostEdit.matcher(uri).matches()) {
+                || newPostEdit.matcher(uri).matches()
+                || profileEdit.matcher(uri).matches()
+                || tag.matcher(uri).matches()
+                || post.matcher(uri).matches()
+                || like.matcher(uri).matches()
+                || feed.matcher(uri).matches()
+                || userFinder.matcher(uri).matches()) {
             if (req.getSession().getAttribute("id") == null
                     && req.getSession().getAttribute("token") == null) {
                 String id = null;
@@ -49,18 +60,18 @@ public class AuthFilter implements Filter {
                         token = cookie.getValue();
                     }
                 }
-                if (id == null && token == null) {
+                if (id == null || token == null) {
                     resp.sendRedirect("http://localhost:8080/login");
                     return;
                 } else {
-                    Optional<List<User>> user = new UserRepository(DBConnection.getInstance())
-                            .findAll(new UserByIdSpecification(Integer.valueOf(id), token));
-                    if (user.isPresent() && user.get().size() != 0) {
+                    Optional<User> user = new UserRepository(DBConnection.getInstance())
+                            .findOne(new UserByIdSpecification(Integer.valueOf(id), token));
+                    if (user.isPresent()) {
                         req.getSession().setMaxInactiveInterval(-1);
-                        req.getSession().setAttribute("id", user.get().get(0).getId());
-                        req.getSession().setAttribute("token", user.get().get(0).getToken());
-                        Cookie cookieToken = new Cookie("token", user.get().get(0).getToken());
-                        Cookie cookieId = new Cookie("id", String.valueOf(user.get().get(0).getId()));
+                        req.getSession().setAttribute("id", user.get().getId());
+                        req.getSession().setAttribute("token", user.get().getToken());
+                        Cookie cookieToken = new Cookie("token", user.get().getToken());
+                        Cookie cookieId = new Cookie("id", String.valueOf(user.get().getId()));
                         cookieToken.setMaxAge(2592000);
                         cookieId.setMaxAge(2592000);
                         resp.addCookie(cookieId);

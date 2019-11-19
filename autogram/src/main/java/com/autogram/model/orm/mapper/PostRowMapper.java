@@ -28,6 +28,12 @@ public class PostRowMapper implements IRowMapper<Post> {
         if (hasColumn(row, "likes")) {
             post.setLikes(Integer.parseInt(row.getString("likes")));
         }
+        if (hasColumn(row, "author_name")) {
+            post.setAuthorName(row.getString("author_name"));
+        }
+        if (hasColumn(row, "author_avatar")) {
+            post.setAuthorAvatar(row.getString("author_avatar"));
+        }
         return post;
     }
 }

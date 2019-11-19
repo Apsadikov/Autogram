@@ -15,6 +15,10 @@ public class Post {
 
     private int likes;
 
+    private String authorName;
+
+    private String authorAvatar;
+
     public int getId() {
         return id;
     }
@@ -61,5 +65,21 @@ public class Post {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getAuthorAvatar() {
+        return authorAvatar;
+    }
+
+    public void setAuthorAvatar(String authorAvatar) {
+        this.authorAvatar = authorAvatar;
     }
 }
