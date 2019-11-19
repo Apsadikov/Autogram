@@ -11,8 +11,7 @@ public class PostRowMapper implements IRowMapper<Post> {
         ResultSetMetaData rowMetaData = row.getMetaData();
         int columns = rowMetaData.getColumnCount();
         for (int x = 1; x <= columns; x++) {
-            System.out.println(rowMetaData.getColumnName(x));
-            if (columnName.equals(rowMetaData.getColumnName(x))) {
+            if (columnName.equals(rowMetaData.getColumnLabel(x))) {
                 return true;
             }
         }
@@ -26,6 +25,9 @@ public class PostRowMapper implements IRowMapper<Post> {
         post.setText(row.getString("text"));
         post.setUserId(row.getInt("user_id"));
         post.setPreview(row.getString("preview"));
+        if (hasColumn(row, "likes")) {
+            post.setLikes(Integer.parseInt(row.getString("likes")));
+        }
         return post;
     }
 }

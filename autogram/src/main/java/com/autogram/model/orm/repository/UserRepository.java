@@ -74,7 +74,7 @@ public class UserRepository implements IRepository<User> {
     }
 
     @Override
-    public Optional<List<User>> query(Specification specification) {
+    public Optional<List<User>> findAll(Specification specification) {
         try {
             ResultSet rs = specification.generateSql(connection).executeQuery();
             List<User> userList = new ArrayList<>();
@@ -82,6 +82,19 @@ public class UserRepository implements IRepository<User> {
                 userList.add(userRowMapper.mapRow(rs));
             }
             return Optional.of(userList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<User> findOne(Specification specification) {
+        try {
+            ResultSet rs = specification.generateSql(connection).executeQuery();
+            rs.next();
+            User user = userRowMapper.mapRow(rs);
+            return Optional.of(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -53,7 +53,12 @@ public class TagRepository implements IRepository<Tag> {
     }
 
     @Override
-    public Optional<List<Tag>> query(Specification specification) {
+    public Optional<List<Tag>> findAll(Specification specification) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Tag> findOne(Specification specification) {
         return Optional.empty();
     }
 }

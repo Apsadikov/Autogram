@@ -3,7 +3,7 @@
 <@base.extends title="${title}" style="${style}">
     <@user.include id="${id}" name="${userProfile.name}" fullName="${userProfile.firstName} ${userProfile.lastName}"
     status="${userProfile.status}" img="${userProfile.avatar}"
-    subscriber="${userProfile.subscriber}" subscription="${userProfile.subscription}" owner="${owner}"/>
+    subscriber="${userProfile.subscriber}" subscription="${userProfile.subscription}" owner="${owner}" subscribe="${isSubscribe}"/>
     <div class="no-gutters subscriptions">
         <#list subscriptions as subscription>
             <div class="row no-gutters subscription">

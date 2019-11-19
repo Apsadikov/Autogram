@@ -2,7 +2,7 @@ package com.autogram.controller;
 
 import com.autogram.model.entity.User;
 import com.autogram.model.orm.repository.UserRepository;
-import com.autogram.model.orm.specification.user.UserEmailSpecification;
+import com.autogram.model.orm.specification.user.UserByEmailSpecification;
 import com.autogram.util.DBConnection;
 import com.autogram.util.PasswordEncrypt;
 import com.autogram.util.Validator;
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("remember_me", req.getParameter("remember_me") != null);
             setTemplate(req, resp);
         } else {
-            Optional<List<User>> user = userRepository.query(new UserEmailSpecification(email));
+            Optional<List<User>> user = userRepository.findAll(new UserByEmailSpecification(email));
             if (user.isPresent() && user.get().size() != 0) {
                 if (PasswordEncrypt.checkPassword(password, user.get().get(0).getHashPassword())) {
                     req.getSession().setMaxInactiveInterval(-1);

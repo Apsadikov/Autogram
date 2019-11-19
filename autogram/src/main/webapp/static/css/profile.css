@@ -1,9 +1,8 @@
 .image {
     overflow: hidden;
-    margin-left: 0;
     display: block;
     height: 100%;
-    margin-right: auto;
+    margin: 0px auto;
 }
 
 .image img {

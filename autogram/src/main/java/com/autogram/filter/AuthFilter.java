@@ -2,7 +2,7 @@ package com.autogram.filter;
 
 import com.autogram.model.entity.User;
 import com.autogram.model.orm.repository.UserRepository;
-import com.autogram.model.orm.specification.user.UserIdSpecification;
+import com.autogram.model.orm.specification.user.UserByIdSpecification;
 import com.autogram.util.DBConnection;
 
 import javax.servlet.*;
@@ -54,7 +54,7 @@ public class AuthFilter implements Filter {
                     return;
                 } else {
                     Optional<List<User>> user = new UserRepository(DBConnection.getInstance())
-                            .query(new UserIdSpecification(Integer.valueOf(id), token));
+                            .findAll(new UserByIdSpecification(Integer.valueOf(id), token));
                     if (user.isPresent() && user.get().size() != 0) {
                         req.getSession().setMaxInactiveInterval(-1);
                         req.getSession().setAttribute("id", user.get().get(0).getId());
@@ -81,7 +81,7 @@ public class AuthFilter implements Filter {
                 }
             } else {
                 Optional<List<User>> user = new UserRepository(DBConnection.getInstance())
-                        .query(new UserIdSpecification((Integer) req.getSession().getAttribute("id"),
+                        .findAll(new UserByIdSpecification((Integer) req.getSession().getAttribute("id"),
                                 (String) req.getSession().getAttribute("token")));
                 if (user.isPresent() && user.get().size() != 0) {
                     filterChain.doFilter(req, resp);

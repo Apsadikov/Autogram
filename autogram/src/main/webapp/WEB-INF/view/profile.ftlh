@@ -1,9 +1,9 @@
 <#import "base.ftlh" as base>
 <#import "user.ftlh" as user>
 <@base.extends title="${title}" style="${style}" js="${js}">
-    <@user.include id="${id}" name="${userProfile.name}" fullName="${userProfile.firstName} ${userProfile.lastName}"
+    <@user.include id="${userProfile.id}" name="${userProfile.name}" fullName="${userProfile.firstName} ${userProfile.lastName}"
     status="${userProfile.status}" img="${userProfile.avatar}"
-    subscriber="${userProfile.subscriber}" subscription="${userProfile.subscription}" owner="${owner}"/>
+    subscriber="${userProfile.subscriber}" subscription="${userProfile.subscription}" owner="${owner}" subscribe="${isSubscribe}"/>
     <#if owner == "true">
     <div class="row no-gutters add-post">
         <form action="/new-post" method="post" class="col-12" enctype="multipart/form-data">

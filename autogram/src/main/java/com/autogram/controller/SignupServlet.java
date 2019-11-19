@@ -2,7 +2,7 @@ package com.autogram.controller;
 
 import com.autogram.model.entity.User;
 import com.autogram.model.orm.repository.UserRepository;
-import com.autogram.model.orm.specification.user.UserEmailSpecification;
+import com.autogram.model.orm.specification.user.UserByEmailSpecification;
 import com.autogram.util.DBConnection;
 import com.autogram.util.FileUploader;
 import com.autogram.util.Validator;
@@ -79,7 +79,7 @@ public class SignupServlet extends HttpServlet {
             req.setAttribute("password", password);
             setTemplate(req, resp);
         } else {
-            Optional<List<User>> user = userRepository.query(new UserEmailSpecification(email));
+            Optional<List<User>> user = userRepository.findAll(new UserByEmailSpecification(email));
             if (user.isPresent() && user.get().size() == 0) {
                 FileUploader fileUploader = new FileUploader(getServletContext(),
                         new File(System.getProperty("user.dir") + "/config/file-uploader.properties"));

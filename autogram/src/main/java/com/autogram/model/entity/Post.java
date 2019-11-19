@@ -13,6 +13,8 @@ public class Post {
 
     private String preview;
 
+    private int likes;
+
     public int getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class Post {
 
     public void setPreview(String preview) {
         this.preview = preview;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

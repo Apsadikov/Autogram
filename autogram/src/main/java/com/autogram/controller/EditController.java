@@ -2,7 +2,7 @@ package com.autogram.controller;
 
 import com.autogram.model.entity.User;
 import com.autogram.model.orm.repository.UserRepository;
-import com.autogram.model.orm.specification.user.ProfileUserIdSpecification;
+import com.autogram.model.orm.specification.profile.ProfileUserIdSpecification;
 import com.autogram.util.DBConnection;
 import com.autogram.util.FileUploader;
 
@@ -55,7 +55,7 @@ public class EditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Optional<List<User>> user = userRepository
-                .query(new ProfileUserIdSpecification((int) req.getSession().getAttribute("id")));
+                .findAll(new ProfileUserIdSpecification((int) req.getSession().getAttribute("id")));
 
         req.setAttribute("title", "Edit profile");
         req.setAttribute("style", "edit");

@@ -12,5 +12,7 @@ public interface IRepository<T> {
 
     void delete(T model);
 
-    Optional<List<T>> query(Specification specification);
+    Optional<List<T>> findAll(Specification specification);
+
+    Optional<T> findOne(Specification specification);
 }

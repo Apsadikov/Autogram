@@ -1,0 +1,144 @@
+
+
+.avatar {
+	height: 50px;
+	width: 50px;
+	object-fit: cover;
+	border-radius: 25px;
+	display: block;
+	margin: auto;
+}
+
+.name {
+	line-height: 50px;
+	font-weight: 600;
+}
+
+.feed {
+	margin-top: 20px;
+	border: 1px solid #f5f5f5;
+}
+
+.post {
+	background: #fff;
+	display: block;
+	height: 700px;
+	overflow: hidden;
+	margin: auto;
+}
+
+.post-image {
+	width: 100%;
+	height: 700px;
+	display: block;
+	object-fit: cover;
+}
+
+.image-wrapper {
+	background: #000;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.social-info {
+	padding: 20px;
+}
+
+.author {
+	padding: 10px 10px;
+	border-bottom: 1px solid #f5f5f5;
+}
+
+.text {
+	margin: 10px 20px;
+	font-size: 14px;
+}
+
+.description {
+	height: 700px;
+	overflow-y: auto;
+	position: relative;
+	background: #fff;
+	border: none;
+}
+
+.fa-heart-o, .fa-heart {
+	margin: 10px 0px 0px 20px;
+	color: firebrick;
+}
+
+.comment-text-header {
+	font-weight: 600;
+	margin-left: 10px;
+}
+
+.comment {
+	padding-left: 20px;
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.comment-author, .author-name {
+	display: inline-block;
+}
+
+.comment-author {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	object-fit: cover;
+}
+
+.author-name {
+	line-height: 40px;
+	margin-left: 10px;
+	vertical-align: bottom;
+}
+
+.comment-text {
+	margin-top: 5px;
+}
+
+.comments {
+	margin-bottom: 10px;
+}
+
+.send {
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	padding: 5px 5px 5px 20px;
+	margin-top: 10px;
+	display: block;
+	border: none;
+	background: #fff;
+}
+
+.new-comment-text {
+	resize: none;
+	border: none;
+	outline: none;
+	display: block;
+	height: 100px;
+}
+
+.send-button {
+	background: #fff;
+	outline: none;
+	margin: 0px 0px auto 0px;
+	border: none;
+}
+
+.right-button, .left-button {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 50%;
+}
+
+.left-button {
+	right: 0px;
+}

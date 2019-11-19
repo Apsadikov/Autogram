@@ -3,6 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+
+    <servlet>
+        <servlet-name>Tag</servlet-name>
+        <servlet-class>com.autogram.controller.TagServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Tag</servlet-name>
+        <url-pattern>/tag</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Like</servlet-name>
+        <servlet-class>com.autogram.controller.LikeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Like</servlet-name>
+        <url-pattern>/like</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Comment</servlet-name>
+        <servlet-class>com.autogram.controller.CommentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Comment</servlet-name>
+        <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>Edit</servlet-name>
         <servlet-class>com.autogram.controller.EditController</servlet-class>

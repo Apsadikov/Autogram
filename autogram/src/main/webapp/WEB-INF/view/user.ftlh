@@ -1,4 +1,4 @@
-<#macro include id name fullName status img subscription subscriber owner>
+<#macro include id name fullName status img subscription subscriber owner subscribe>
 <div class="row profile no-gutters">
     <div class="col-2">
         <img src="/static/image/${img}" class="avatar" alt="">
@@ -12,7 +12,10 @@
             <div class="status">${status}</div>
             <#if owner == "false">
             <div class="social-actions">
-                <div class="subscribe">Подписаться</div>
+                <div class="subscribe" id="subscribe" style="<#if subscribe=="true">background:cornflowerblue; color:#fff</#if>">
+                <#if subscribe=="false">Подписаться<#else>Вы подписаны</#if>
+            </div>
+                <div class="hidden" id="id">${id}</div>
                 <div class="message">Сообщение</div>
             </div>
             <#else>

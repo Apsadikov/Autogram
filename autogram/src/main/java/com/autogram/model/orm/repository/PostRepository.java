@@ -45,7 +45,7 @@ public class PostRepository implements IRepository<Post> {
     }
 
     @Override
-    public Optional<List<Post>> query(Specification specification) {
+    public Optional<List<Post>> findAll(Specification specification) {
         try {
             ResultSet rs = specification.generateSql(connection).executeQuery();
             List<Post> postList = new ArrayList<>();
@@ -53,6 +53,19 @@ public class PostRepository implements IRepository<Post> {
                 postList.add(postRowMapper.mapRow(rs));
             }
             return Optional.of(postList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Post> findOne(Specification specification) {
+        try {
+            ResultSet rs = specification.generateSql(connection).executeQuery();
+            rs.next();
+            Post post = postRowMapper.mapRow(rs);
+            return Optional.of(post);
         } catch (SQLException e) {
             e.printStackTrace();
         }
