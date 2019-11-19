@@ -28,6 +28,7 @@ public class FeedServlet extends HttpServlet {
 
         req.setAttribute("title", "Feed");
         req.setAttribute("style", "feed");
+        req.setAttribute("js", "feed");
         req.setAttribute("posts", postList.get());
         req.getRequestDispatcher("/feed.ftlh").forward(req, resp);
     }

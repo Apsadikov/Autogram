@@ -1,31 +1,13 @@
 <#import "base.ftlh" as base>
-<@base.extends title="${title}" style="${style}">
+<@base.extends title="${title}" style="${style}" js="${js}">
 <div class="row no-gutters">
     <div class="col-10 search">
-        <input type="text" class="search-box" placeholder="Поиск..">
-        <div class="results">
-            <div class="row no-gutters result">
-                <div class="col-1">
-                    <img src="https://sun9-61.userapi.com/c624418/v624418543/4fca9/ZlGtFq6vi_4.jpg?ava=1" class="avatar"
-                         alt="">
-                </div>
-                <div class="col-11 name">
-                    Ivan_018
-                </div>
-            </div>
-            <div class="row no-gutters result">
-                <div class="col-1">
-                    <img src="https://sun9-61.userapi.com/c624418/v624418543/4fca9/ZlGtFq6vi_4.jpg?ava=1" class="avatar"
-                         alt="">
-                </div>
-                <div class="col-11 name">
-                    Ivan_018
-                </div>
-            </div>
+        <input type="text" class="search-box" id="search" placeholder="Поиск..">
+        <div class="results" id="result">
         </div>
     </div>
 </div>
-<#list posts as post>
+    <#list posts as post>
     <div class="row no-gutters feed">
         <div class="col-10 post">
             <div class="row no-gutters author">
@@ -47,5 +29,5 @@
             </div>
         </div>
     </div>
-</#list>
+    </#list>
 </@base.extends>
