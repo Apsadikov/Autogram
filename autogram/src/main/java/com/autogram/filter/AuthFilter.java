@@ -31,6 +31,8 @@ public class AuthFilter implements Filter {
         Pattern post = Pattern.compile("^/post*$");
         Pattern like = Pattern.compile("^/like*$");
         Pattern feed = Pattern.compile("^/feed*$");
+        Pattern message = Pattern.compile("^/message*$");
+        Pattern dialog = Pattern.compile("^/dialog*$");
         Pattern userFinder = Pattern.compile("^/user*$");
         String uri = req.getRequestURI();
         if (login.matcher(uri).matches() || signup.matcher(uri).matches()) {
@@ -47,6 +49,8 @@ public class AuthFilter implements Filter {
                 || post.matcher(uri).matches()
                 || like.matcher(uri).matches()
                 || feed.matcher(uri).matches()
+                || message.matcher(uri).matches()
+                || dialog.matcher(uri).matches()
                 || userFinder.matcher(uri).matches()) {
             if (req.getSession().getAttribute("id") == null
                     && req.getSession().getAttribute("token") == null) {

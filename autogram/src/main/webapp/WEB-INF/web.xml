@@ -5,6 +5,26 @@
          version="4.0">
 
     <servlet>
+        <servlet-name>Message</servlet-name>
+        <servlet-class>com.autogram.controller.MessageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Message</servlet-name>
+        <url-pattern>/message</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Dialog</servlet-name>
+        <servlet-class>com.autogram.controller.DialogServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Dialog</servlet-name>
+        <url-pattern>/dialog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>User</servlet-name>
         <servlet-class>com.autogram.controller.UserServlet</servlet-class>
     </servlet>

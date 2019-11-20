@@ -18,7 +18,7 @@
     <div class="row no-gutters">
         <#if Session["token"]??>
             <div class="col-2"><a href="http://localhost:8080/feed" class="menu-item right-border">Лента</a></div>
-            <div class="col-2"><a href="http://localhost:8080/message" class="menu-item right-border">Сообщения</a></div>
+            <div class="col-2"><a href="http://localhost:8080/dialog" class="menu-item right-border">Сообщения</a></div>
             <div class="col-4"><a href="http://localhost:8080/profile" class="menu-item right-border">Профиль</a></div>
             <div class="col-2"><a href="http://localhost:8080/about" class="menu-item right-border">О сайте</a></div>
             <div class="col-2"><a href="http://localhost:8080/logout" class="menu-item">Выйти</a></div>

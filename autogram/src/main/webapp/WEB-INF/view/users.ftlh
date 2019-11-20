@@ -5,7 +5,7 @@
                  alt="">
         </div>
         <div class="col-11 name">
-            ${user.name}
+            <a href="/profile?id=${user.id}">${user.name}</a>
         </div>
     </div>
 </#list>

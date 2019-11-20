@@ -1,0 +1,46 @@
+.full-name {
+    font-size: 12px;
+}
+
+.username {
+    font-size: 14px;
+}
+
+.dialogs {
+    margin: 20px auto 20px;
+    padding: 20px 50px 0px;
+    border: 1px solid #f5f5f5;
+    background: #fff;
+}
+
+.avatar-miniature {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dialog {
+    margin-bottom: 20px;
+}
+
+.username {
+    font-weight: 600;
+}
+
+.full-name {
+    margin-top: 3px;
+    color: #888;
+}
+
+.last-message {
+    color: #888;
+    margin-top: 5px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.interlocutor {
+    margin-top: 8px;
+    line-height: 40px;
+}
